@@ -2,14 +2,14 @@ import React, { useState } from 'react'
 
 const App = () => {
   const [clock, setClock] = useState("Pas d'horaire")
-
   const getClock = () => {
-    fetch('http://localhost:5001/clock/get')
+    fetch('https://localhost:5001/clock/get')
       .then(response => {
+        console.log(response)
         return response.json()
       })
       .then(data => {
-        console.log(data)
+        setClock(data)
         return data
       })
       .catch(err => {
